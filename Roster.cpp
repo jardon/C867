@@ -17,7 +17,7 @@ int main() {
                                   "A5,Jarred,Wilson,jarred.wilson15@gmail.com,27,14,33,80,SOFTWARE"};
     string delimiter = ",";
 
-    Roster roster = Roster(5);
+    Roster roster = Roster();
 
     for(int i = 0; i < 5; i++) {
         size_t last = 0;
