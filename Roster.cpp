@@ -19,6 +19,9 @@ int main() {
 
     Roster roster = Roster();
 
+    cout << "Scripting and Programming - Applications – C867" << endl;
+    cout << "C++ Project Written by Jarred Wilson: #001277133" << endl << endl;
+
     for(int i = 0; i < 5; i++) {
         size_t last = 0;
         size_t next = 0;
