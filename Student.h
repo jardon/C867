@@ -39,6 +39,7 @@ class Student {
         string email;
         int age;
         int* toComplete;
+        Degree degree;
 
 
 };

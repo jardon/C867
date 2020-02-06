@@ -48,6 +48,8 @@ inline void Student::setAge(int age) { this->age = age; }
 
 inline void Student::setToComplete(int toComplete []) { this->toComplete = toComplete; }
 
+inline Degree Student::getDegreeProgram() { return degree; }
+
 void Student::print() {
     cout << "Student ID: " << getId();
     cout << "\tFirst Name: " << getFirstName();
