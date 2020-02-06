@@ -18,7 +18,10 @@ Student::Student(string id, string firstName, string lastName, string email, int
     this->lastName = lastName;
     this->email = email;
     this->age = age;
-    this->toComplete = toComplete;
+    this->toComplete = new int[3];
+    for(int i = 0; i < 3; i++) {
+        this->toComplete[i] = toComplete[i];
+    }
 }
 
 Student::~Student() {
@@ -46,7 +49,12 @@ inline void Student::setLastName(string lastName) { this->lastName = lastName; }
 
 inline void Student::setAge(int age) { this->age = age; }
 
-inline void Student::setToComplete(int toComplete []) { this->toComplete = toComplete; }
+inline void Student::setToComplete(int toComplete []) {
+    this->toComplete = new int[3];
+    for(int i = 0; i < 3; i++) {
+        this->toComplete[i] = toComplete[i];
+    }
+}
 
 inline Degree Student::getDegreeProgram() { return degree; }
 
@@ -56,7 +64,7 @@ void Student::print() {
     cout << "\tLast Name: " << getLastName();
     cout << "\tEmail: " << getEmail();
     cout << "\tAge: " << getAge();
-    cout << "\tDays in Course: " << getToComplete()[0] << ", " << getToComplete()[1] << ", " << getToComplete()[2];
+    cout << "\tDays in Course: " << *(getToComplete()) << ", " << *(getToComplete() + 1) << ", " << *(getToComplete() + 2);
     cout << "\tDegree: ";
 
     switch (getDegreeProgram()) {
