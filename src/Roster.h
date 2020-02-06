@@ -7,7 +7,7 @@ class Roster {
         Roster();
         Roster(int size);
         ~Roster();
-        void add(string id, string firstName, string lastName, string email, int age, int course1, int course2, int course3, Degree degree);
+        void add(string id, string firstName, string lastName, string email, int age, int course1, int course2, int course3, int degree);
         void remove(string id);
         void printAll();
         void printDaysInCourse(string id);

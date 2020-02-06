@@ -25,7 +25,7 @@ int main() {
         string sub;
         string tempData[9];
         int j = 0;
-        Degree degree;
+        int degree;
 
         while((next = studentData[i].find(delimiter, last)) != string::npos) {
             sub = studentData[i].substr(last, next - last);
@@ -74,7 +74,7 @@ Roster::~Roster() {
 }
 
 void Roster::add(string id, string firstName, string lastName, string email, 
-                 int age, int course1, int course2, int course3, Degree degree) {
+                 int age, int course1, int course2, int course3, int degree) {
     int toComplete[] = { course1, course2, course3 };
     Student* student = NULL;
 
