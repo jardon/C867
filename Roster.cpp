@@ -49,11 +49,11 @@ int main() {
 
     roster.printAll();
     roster.printInvalidEmails();
-//    roster.printDaysInCourse("A3");
-//    roster.printByDegreeProgram(SOFTWARE);
-//    roster.remove("A3");
-//    roster.remove("A3");
-//    roster.~Roster();
+    roster.printDaysInCourse("A3");
+    roster.printByDegreeProgram(SOFTWARE);
+    roster.remove("A3");
+    roster.remove("A3");
+    roster.~Roster();
     
 
     return 0;
@@ -65,7 +65,9 @@ Roster::Roster() {
 
 Roster::~Roster() {
     for(int i = 0; i < size; i++) {
-        delete classRosterArray[i];
+        if(classRosterArray[i] == nullptr) {
+            delete classRosterArray[i];
+        }
     }
 }
 
@@ -101,11 +103,13 @@ void Roster::remove(string id) {
     bool found = false;
 
     for(int i = 0; i < size; i++) {
-        if(classRosterArray[i]->getId() == id) {
-            delete classRosterArray[i];
-            classRosterArray[i] = nullptr;
-            found = true;
-            break;
+        if(classRosterArray[i] != nullptr) {
+            if (classRosterArray[i]->getId() == id) {
+                delete classRosterArray[i];
+                classRosterArray[i] = nullptr;
+                found = true;
+                break;
+            }
         }
     }
     if(!found)
