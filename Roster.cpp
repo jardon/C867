@@ -137,18 +137,19 @@ void Roster::printDaysInCourse(string id) {
 }
 
 void Roster::printInvalidEmails() {
-    bool noSpace = true;
-    bool atSymbol = false;
-    bool validPeriod = false;
-    string email;
+        string email;
 
     for(int i = 0; i < size; i++) {
+        bool space = false;
+        bool atSymbol = false;
+        bool validPeriod = false;
+
         if(classRosterArray[i] != nullptr) {
             email = classRosterArray[i]->getEmail();
 
             for (int j = 0; j < email.length(); j++) {
                 if (email[j] == ' ') {
-                    noSpace = false;
+                    space = true;
                     break;
                 } else if (email[j] == '@' && !atSymbol) {
                     atSymbol = true;
@@ -156,7 +157,7 @@ void Roster::printInvalidEmails() {
                     validPeriod = true;
                 }
             }
-            if (!noSpace && !atSymbol && !validPeriod)
+            if (space || !atSymbol || !validPeriod)
                 cout << "Invalid email for " << classRosterArray[i]->getId() << ": "
                      << classRosterArray[i]->getEmail() << endl;
         }
