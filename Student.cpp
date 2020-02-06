@@ -49,7 +49,7 @@ inline void Student::setLastName(string lastName) { this->lastName = lastName; }
 
 inline void Student::setAge(int age) { this->age = age; }
 
-inline void Student::setToComplete(int toComplete []) {
+void Student::setToComplete(int toComplete []) {
     this->toComplete = new int[3];
     for(int i = 0; i < 3; i++) {
         this->toComplete[i] = toComplete[i];
