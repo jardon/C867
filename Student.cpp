@@ -53,7 +53,7 @@ inline Degree Student::getDegreeProgram() { return degree; }
 void Student::print() {
     cout << "Student ID: " << getId();
     cout << "\tFirst Name: " << getFirstName();
-    cout << "\tLast Name " << getLastName();
+    cout << "\tLast Name: " << getLastName();
     cout << "\tEmail: " << getEmail();
     cout << "\tAge: " << getAge();
     cout << "\tDays in Course: " << getToComplete()[0] << ", " << getToComplete()[1] << ", " << getToComplete()[2];
