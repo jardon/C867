@@ -146,7 +146,7 @@ void Roster::printInvalidEmails() {
         if(classRosterArray[i] != nullptr) {
             email = classRosterArray[i]->getEmail();
 
-            for (int j = 0; j < email[j]; j++) {
+            for (int j = 0; j < email.length(); j++) {
                 if (email[j] == ' ') {
                     noSpace = false;
                     break;
