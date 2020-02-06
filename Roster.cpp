@@ -23,34 +23,34 @@ int main() {
         size_t last = 0;
         size_t next = 0;
         string sub;
-        string tempData[9];
+        string tempData[9] = {"string", "string", "string", "string", "string", "string", "string", "string", "string"};
         int j = 0;
         int degree;
 
-        while((next = studentData[i].find(delimiter, last)) != string::npos) {
-            sub = studentData[i].substr(last, next - last);
-            tempData[j++] = sub;
-            last = next++;
-        }
+//        while((next = studentData[i].find(delimiter, last)) != string::npos) {
+//            sub = studentData[i].substr(last, next - last);
+//            tempData[j++] = sub;
+//            last = next++;
+//        }
+//
+//        if(tempData[8] == "SOFTWARE")
+//            degree = SOFTWARE;
+//        else if (tempData[8] == "NETWORK")
+//            degree = NETWORK;
+//        else if (tempData[8] == "SECURITY")
+//            degree = SECURITY;
 
-        if(tempData[8] == "SOFTWARE")
-            degree = SOFTWARE;
-        else if (tempData[8] == "NETWORK")
-            degree = NETWORK;
-        else if (tempData[8] == "SECURITY")
-            degree = SECURITY;
-            
-        roster.add(tempData[0], tempData[1], tempData[2], tempData[3], stoi(tempData[4]), \
-               stoi(tempData[5]), stoi(tempData[6]), stoi(tempData[7]), degree);
+//        roster.add(tempData[0], tempData[1], tempData[2], tempData[3], stoi(tempData[4]), \
+//               stoi(tempData[5]), stoi(tempData[6]), stoi(tempData[7]), degree);
     }
 
-    roster.printAll();
-    roster.printInvalidEmails();
-    roster.printDaysInCourse("A3");
-    roster.printByDegreeProgram(SOFTWARE);
-    roster.remove("A3");
-    roster.remove("A3");
-    roster.~Roster();
+//    roster.printAll();
+//    roster.printInvalidEmails();
+//    roster.printDaysInCourse("A3");
+//    roster.printByDegreeProgram(SOFTWARE);
+//    roster.remove("A3");
+//    roster.remove("A3");
+//    roster.~Roster();
     
 
     return 0;
@@ -69,7 +69,7 @@ Roster::~Roster() {
 void Roster::add(string id, string firstName, string lastName, string email, 
                  int age, int course1, int course2, int course3, int degree) {
     int toComplete[] = { course1, course2, course3 };
-    Student* student = NULL;
+    Student* student = nullptr;
 
     switch(degree) {
         case SOFTWARE:
@@ -87,7 +87,7 @@ void Roster::add(string id, string firstName, string lastName, string email,
     }
 
     for(int i = 0; i < size; i++) {
-        if(classRosterArray[i] == NULL) {
+        if(classRosterArray[i] == nullptr) {
             classRosterArray[i] = student;
             break;
         }
@@ -119,8 +119,8 @@ void Roster::printDaysInCourse(string id) {
     for(int i = 0; i < size; i++) {
         if(classRosterArray[i]->getId() == id) {
             int* days = classRosterArray[i]->getToComplete();
-            int total;
-            for(int j; j < 3; j++) {
+            int total = 0;
+            for(int j = 0; j < 3; j++) {
                 total += *(days + j);
             }
             cout << "Average days left for " << classRosterArray[i]->getId() << ": " << (total/3) << endl;

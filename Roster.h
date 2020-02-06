@@ -18,6 +18,6 @@ class Roster {
     
     private:
         int size = 5;
-        Student* classRosterArray[5];
+        Student* classRosterArray[5] = {nullptr, nullptr, nullptr, nullptr, nullptr};
         
 };
