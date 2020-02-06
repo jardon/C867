@@ -9,5 +9,5 @@ class NetworkStudent : public Student {
         Degree getDegreeProgram() override;
 
     protected:
-        Degree degree = NETWORKING;
+        Degree degree = NETWORK;
 };
