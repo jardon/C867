@@ -17,6 +17,7 @@ class Roster {
         void printByDegreeProgram(int degree);
     
     private:
-        Student* classRosterArray = NULL;
-        int size;
+        int size = 5;
+        Student* classRosterArray[5];
+        
 };
