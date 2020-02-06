@@ -33,6 +33,7 @@ int main() {
             j++;
             last = next + 1;
         }
+
         tempData[8] = studentData[i].substr(last, studentData[i].length() - 1);
 
         if(tempData[8] == "SOFTWARE")
@@ -47,7 +48,7 @@ int main() {
     }
 
     roster.printAll();
-//    roster.printInvalidEmails();
+    roster.printInvalidEmails();
 //    roster.printDaysInCourse("A3");
 //    roster.printByDegreeProgram(SOFTWARE);
 //    roster.remove("A3");
@@ -102,6 +103,7 @@ void Roster::remove(string id) {
     for(int i = 0; i < size; i++) {
         if(classRosterArray[i]->getId() == id) {
             delete classRosterArray[i];
+            classRosterArray[i] = nullptr;
             found = true;
             break;
         }
@@ -112,20 +114,24 @@ void Roster::remove(string id) {
 
 void Roster::printAll() {
     for(int i = 0; i < size; i++) {
-        classRosterArray[i]->print();
+        if(classRosterArray[i] != nullptr) {
+            classRosterArray[i]->print();
+        }
     }
 
 }
 
 void Roster::printDaysInCourse(string id) {
     for(int i = 0; i < size; i++) {
-        if(classRosterArray[i]->getId() == id) {
-            int* days = classRosterArray[i]->getToComplete();
-            int total = 0;
-            for(int j = 0; j < 3; j++) {
-                total += *(days + j);
+        if(classRosterArray[i] != nullptr) {
+            if (classRosterArray[i]->getId() == id) {
+                int *days = classRosterArray[i]->getToComplete();
+                int total = 0;
+                for (int j = 0; j < 3; j++) {
+                    total += *(days + j);
+                }
+                cout << "Average days left for " << classRosterArray[i]->getId() << ": " << (total / 3) << endl;
             }
-            cout << "Average days left for " << classRosterArray[i]->getId() << ": " << (total/3) << endl;
         }
     }
 }
@@ -137,30 +143,32 @@ void Roster::printInvalidEmails() {
     string email;
 
     for(int i = 0; i < size; i++) {
-        email = classRosterArray[i]->getEmail();
+        if(classRosterArray[i] != nullptr) {
+            email = classRosterArray[i]->getEmail();
 
-        for(int j = 0; j < email[j]; j++) {
-            if(email[j] == ' ') {
-                noSpace = false;
-                break;
+            for (int j = 0; j < email[j]; j++) {
+                if (email[j] == ' ') {
+                    noSpace = false;
+                    break;
+                } else if (email[j] == '@' && !atSymbol) {
+                    atSymbol = true;
+                } else if (email[j] == '.' && !validPeriod && atSymbol) {
+                    validPeriod = true;
+                }
             }
-            else if(email[j] == '@' && !atSymbol) {
-                atSymbol = true;
-            }
-            else if(email[j] == '.' && !validPeriod && atSymbol) {
-                validPeriod = true;
-            }
+            if (!noSpace && !atSymbol && !validPeriod)
+                cout << "Invalid email for " << classRosterArray[i]->getId() << ": "
+                     << classRosterArray[i]->getEmail() << endl;
         }
-        if(!noSpace && !atSymbol && !validPeriod)
-            cout << "Invalid email for " << classRosterArray[i]->getId() << ": " 
-                 << classRosterArray[i]->getEmail() << endl;
     }
 }
 
 void Roster::printByDegreeProgram(int degree) {
     for(int i = 0; i < size; i++) {
-        if(classRosterArray[i]->getDegreeProgram() == degree) {
-            classRosterArray[i]->print();
+        if(classRosterArray[i] != nullptr) {
+            if (classRosterArray[i]->getDegreeProgram() == degree) {
+                classRosterArray[i]->print();
+            }
         }
     }
 
