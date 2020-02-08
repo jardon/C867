@@ -1,3 +1,3 @@
-#include "SecurityStudent.h"
+#include "securityStudent.h"
 
 inline Degree SecurityStudent::getDegreeProgram() { return degree; }

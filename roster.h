@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "Student.h"
+#include "student.h"
 
 using namespace std;
 

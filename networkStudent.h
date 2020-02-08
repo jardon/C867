@@ -1,6 +1,6 @@
 #pragma once
-#include "Student.h"
-#include "Degree.h"
+#include "student.h"
+#include "degree.h"
 
 using namespace std;
 

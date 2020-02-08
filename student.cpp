@@ -1,7 +1,7 @@
 using namespace std;
 
 #include <string>
-#include "Student.h"
+#include "student.h"
 #include <iostream>
 
 Student::Student() {

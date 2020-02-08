@@ -1,3 +1,3 @@
-#include "NetworkStudent.h"
+#include "networkStudent.h"
 
 inline Degree NetworkStudent::getDegreeProgram() { return degree; }

@@ -1,14 +1,14 @@
 #pragma once
-#include "Student.h"
-#include "Degree.h"
+#include "student.h"
+#include "degree.h"
 
 using namespace std;
 
-class SoftwareStudent : public Student {
+class SecurityStudent : public Student {
     public:
         using Student::Student;
         Degree getDegreeProgram() override;
 
     protected:
-        Degree degree = SOFTWARE;
+        Degree degree = SECURITY;
 };

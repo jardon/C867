@@ -1,10 +1,10 @@
-#include "Roster.h"
-#include "NetworkStudent.h"
-#include "SoftwareStudent.h"
-#include "SecurityStudent.h"
-#include "Student.h"
+#include "roster.h"
+#include "networkStudent.h"
+#include "softwareStudent.h"
+#include "securityStudent.h"
+#include "student.h"
 #include <iostream>
-#include "Degree.h"
+#include "degree.h"
 
 using namespace std;
 
